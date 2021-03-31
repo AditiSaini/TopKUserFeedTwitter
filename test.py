@@ -24,13 +24,13 @@ class Test(unittest.TestCase):
         all_tweets = main.getTopKFeedsFormatted(self.users, self.tweets, self.follows, user_id, topK)
         self.assertListEqual(all_tweets, expected_answer2) 
 
-    def test3_top4Feeds_success_userEvanJones(self):
+    def test3_topFourFeeds_success_userEvanJones(self):
         user_id = 989489610
         topK = 4
         all_tweets = main.getTopKFeedsFormatted(self.users, self.tweets, self.follows, user_id, topK)
         self.assertListEqual(all_tweets, expected_answer3)
     
-    def test4_top2Feeds_success_userCMUDatabaseGroup(self):
+    def test4_topTwoFeeds_success_userCMUDatabaseGroup(self):
         user_id = 2252942868
         topK = 2
         all_tweets = main.getTopKFeedsFormatted(self.users, self.tweets, self.follows, user_id, topK)
