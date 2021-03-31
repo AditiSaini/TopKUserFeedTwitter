@@ -28,5 +28,3 @@
  1. The user tweets data is static 
  2. The computation for the top k feeds takes place when the user requests the data
  3. The top k feeds are based only on timestamp. The more recent the tweet, the higher the position
-
-### NOTE: Both the original as well as the bonus tasks have been implemented
