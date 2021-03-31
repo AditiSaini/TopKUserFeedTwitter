@@ -1,0 +1,65 @@
+Render a User's Timeline
+
+Twitter traditionally shows users a list of tweets from people they follow, ordered from most recent to oldest (called the timeline). We have provided three files containing a list of Twitter users, a list of who some of those users follow, and a list of tweets. Your job is to create a command-line program written in the programming language of your choice that displays a given user's timeline.
+
+
+Detailed Specifications
+
+The three data files are plain text, UTF-8 encoded comma-separated values (CSV) files. Unix new lines ("\n") separate each ramaauecord. In these files, any ids are 64-bit signed integers (although they will always be > 0). The records in each file do not have any particular order. The files contain the following data:
+
+
+users.csv
+
+user id,twitter screen name,full display name
+
+The user id is a unique id to identify users. The screen name is a short, unique, human-visible string to help users identify each other (also unique). The full display name is a longer string for the name of the user.
+
+
+follows.csv
+
+source user id,destination user id
+
+A record of the form "source,destination" means that the user with id source "follows" the user with the id destination. This means that tweets from user destination should appear in the timeline for user source.
+
+
+tweets.csv
+
+tweet id,author id,timestamp,text
+
+The author id is the id of the user who wrote the tweet. The timestamp is the time the tweet was created in "Unix time" (seconds since January 1, 1970). Tweet id is a unique identifier for the tweet.
+
+NOTE:
+* Tweets can contain "special" characters. They will be encoded as UTF-8 in this file, so you may need to ensure you handle the text appropriately
+* When generating the timeline, loading all tweets from followed users into a List, then sorting and taking the top K Tweets is not sufficient. We consider this as a baseline solution and are looking for a more runtime/memory efficient solution.
+
+Input
+
+Your command-line program should first start and wait for user inputs. It should continuously accept two arguments - userId and lengthOfTimeline - separated by a space. Upon a return, the program should print the generated timeline and wait for subsequent user input.
+
+Output
+
+You must display the N (requested timeline length) most recent tweets authored by people the user follows. You can choose to format the tweets any way you wish, but you must display at least the following fields:
+
+* author's display name
+* creation time, formatted in some "human understandable way" (e.g. something that separates the date and time parts, such as 2015-09-18T13:41:52Z or "1:41PM Sep 18, 2015")
+* tweet text
+
+Try running your program with user id 989489610 (@epcjones), although you should be able to run it with any user id.
+
+
+Submission
+
+Create a command-line program written in the programming language of your choice that displays a given user's timeline.
+
+Please create a .zip or a .tar.gz containing all the source code for your solution, and create a file called "README" with directions for how to compile it and run it from the command line. For example, the following directions might work for a Java solution:
+
+1. Compile all code into the bin directory: javac -d bin src/*.java
+2. Run the program with user id 989489610: java -ea -cp bin Timelines 989489610
+
+Please also document any assumptions you made and any additional notes you think may be relevant.
+
+Evaluation criteria
+* Code Correctness & Efficiency
+* Code Readability & Maintainability
+* Testing
+* Documentation
