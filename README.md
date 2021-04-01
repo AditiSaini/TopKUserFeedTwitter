@@ -26,6 +26,7 @@
  1. The user tweets data is static 
  2. The computation for the top k feeds takes place when the user requests the data
  3. The top k feeds are based only on timestamp. The more recent the tweet, the higher the position
+ 4. Expected answers for testing have been generated using the baseline solution by sorting and then extracting top K value
 
  ## **D) Methodology Adopted**
  1. Each of the csv files are converted into pandas dataframes for easier processing 
@@ -40,3 +41,26 @@
 <p>
     <img src="Image/diagram.png"/>
 </p>
+
+## **E) Space Complexity of the Algorithm**
+- m: number of followers
+- n: max number of tweets by a follower
+- k: top k tweets and k<=mn
+- Space Complexity for storing each user heap: O( m*n )
+- Space Complexity for storing latest tweets from each user: O( m )
+- Space Complexity for storing topK tweets: O( k )
+- **Total Space Complexity**: O( m*(n+1) + k) ~ **O( mn + k )**
+
+## **F) Time Complexity of the Algorithm**
+- m: number of followers
+- n: max number of tweets by a follower
+- k: top k tweets and k<=mn
+- Time Complexity for building a user heap: O( n )
+- Time Complexity for building all user heap: O( m*n )
+- Time Complexity for popping and pushing actions into the heap: O( log(x) ) where x is the size of the heap
+- Time Complexity for putting the latest tweets into the main heap: O( m*log(n) )
+- Time Complexity for extracting the top K tweets from the main heap: O( k*log(m) + k*log(n) )
+- There is a k*log(m) because for each top K tweet, the main heap, of max size m, is popped off into the Top K Tweets Array
+- There is a plus k*log(n) because the next recent tweet may need to be pushed to the main heap from a user heap of max size n. This happens when a value is popped off from the main heap into the top K array so a next value is added from that user heap to the main heap. In this way, the main heap maintains the lastest tweets from each user he follows. 
+- **Total Time Complexity**: O( m*n + m*log(n) + k*log(m) + k*log(n) ) ~ **O( m*n + k*(log(m) + log(n)) )**
+- Time Complexity if a direct sorting solution was used and top K was extracted: O( mn*log(mn) )
