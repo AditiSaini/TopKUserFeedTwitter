@@ -37,4 +37,6 @@
  7. This is repeated, until the array contains the topK feeds of the user from his followers
 <br/>
 <br/>
- ![Screenshot](Image/diagram.png)
+<p>
+    <img src="Image/diagram.png"/>
+</p>
