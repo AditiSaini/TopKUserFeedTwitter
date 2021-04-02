@@ -49,7 +49,7 @@
 - Space Complexity for storing each user heap: O( m*n )
 - Space Complexity for storing latest tweets from each user: O( m )
 - Space Complexity for storing topK tweets: O( k )
-- **Total Space Complexity**: O( m*(n+1) + k) ~ **O( mn + k )**
+- **Total Space Complexity**: O( m*(n+1) + k) ~ **O( mn )**
 
 ## **F) Time Complexity of the Algorithm**
 - m: number of followers
